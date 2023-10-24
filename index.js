@@ -100,21 +100,45 @@ for (var i =0; i < finances.length; i++) {
 }
 
 // * The net total amount of Profit/Losses over the entire period.
+var netTotalAmount = 0;
+
+for (var i = 0; i < finances.length; i++) {
+
+    netTotalAmount += finances[i][1];
+}
+console.log("net total amount: " + "$" + netTotalAmount);
 
 
 // * The average of the **changes** in Profit/Losses over the entire period.
 //   * You will need to track what the total change in Profit/Losses are from month to month and then find the average.
 //   * (`Total/(Number of months - 1)`)
+var monthlyAve =0;
+var monthlyComp = 0;
+var monthlyTotals = [];
+for (i = 0; i < finances.length-1; i++) {
 
+
+  monthlyComp = finances[i][1] - finances[i+1][1]
+  monthlyTotals.push(monthlyComp)
+  // monthlyAve = finances[i][1] / finances.length;
+
+}
+
+for (i = 0; i < monthlyTotals.length; i++){
+
+  monthlyAve += monthlyTotals[i];
+  
+}
+console.log("total average is " + "-" + (monthlyAve/(finances.length-1)).toFixed(2));
 // * The greatest increase in Profit/Losses (date and amount) over the entire period.
-var totalAmount = 0;
+var greatestAmount = 0;
 for (var i = 0; i < finances.length; i++){
 
-  if (finances[i][1] > totalAmount) {
+  if (finances[i][1] > greatestAmount) {
 
-    totalAmount = finances[i];
+    greatestAmount = finances[i];
   }
 }
-console.log("the " + totalAmount);
+console.log("the " + greatestAmount);
 
 // * The greatest decrease in Profit/Losses (date and amount) over the entire period.g
