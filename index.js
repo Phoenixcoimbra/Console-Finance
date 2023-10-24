@@ -87,8 +87,8 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+var maxProfit =0;
 
-var totalAmount = 0;
 // Your task is to write JavaScript code that analyzes the records to calculate each of the following:
 
 // * The total number of months included in the dataset.
@@ -102,11 +102,19 @@ for (var i =0; i < finances.length; i++) {
 // * The net total amount of Profit/Losses over the entire period.
 
 
-
 // * The average of the **changes** in Profit/Losses over the entire period.
 //   * You will need to track what the total change in Profit/Losses are from month to month and then find the average.
 //   * (`Total/(Number of months - 1)`)
 
 // * The greatest increase in Profit/Losses (date and amount) over the entire period.
+var totalAmount = 0;
+for (var i = 0; i < finances.length; i++){
 
-// * The greatest decrease in Profit/Losses (date and amount) over the entire period.
+  if (finances[i][1] > totalAmount) {
+
+    totalAmount = finances[i];
+  }
+}
+console.log("the " + totalAmount);
+
+// * The greatest decrease in Profit/Losses (date and amount) over the entire period.g
