@@ -131,14 +131,73 @@ for (i = 0; i < monthlyTotals.length; i++){
 }
 console.log("total average is " + "-" + (monthlyAve/(finances.length-1)).toFixed(2));
 // * The greatest increase in Profit/Losses (date and amount) over the entire period.
+
+// Initialise the greatest amount and current increase variables.
+// var greatestAmount = 0;
+// var previousIncrease =0
+// for (var i = 0; i < finances.length; i++){
+// Iterate over the finances array.
+//   if (finances[i][1] > greatestAmount) {
+
+
+//     previousIncrease = finances[i];
+//      finances[i] < previousIncrease;
+//      greatestAmount = previousIncrease;
+    
+//   }
+// }
+// console.log("the Greatest Increase in Profits/Losses:  " + greatestAmount);
+
+// Initialise the greatest amount and current increase variables.
 var greatestAmount = 0;
-for (var i = 0; i < finances.length; i++){
+var currentIncrease = 0;
 
-  if (finances[i][1] > greatestAmount) {
+// Iterate over the finances array.
+for (var i = 1; i < finances.length; i++) {
 
-    greatestAmount = finances[i];
+  // Calculate the current increase in profits.
+  currentIncrease = finances[i][1] - finances[i - 1][1];
+
+  // If the current increase is greater than the greatest increase, update the greatest increase variable.
+  if (currentIncrease > greatestAmount) {
+    greatestAmount = currentIncrease;
+    greatestIncreaseDate = finances[i][0];
   }
 }
-console.log("the " + greatestAmount);
 
-// * The greatest decrease in Profit/Losses (date and amount) over the entire period.g
+
+console.log("The Greatest Increase in Profits/Losses:  " + greatestIncreaseDate+"( $"+ greatestAmount+")");
+
+// // * The greatest decrease in Profit/Losses (date and amount) over the entire period.
+
+// var lowestAmount = 0;
+
+// for (var i = 0; i < finances.length; i++) {
+
+//   if (finances[i][1] < lowestAmount)
+
+//   lowestAmount = finances[i];
+// }
+
+console.log("the Greatest Decrease in Profits/Losses:  " + lowestAmount);
+
+// Initialise the greatest amount and current decrease variables.
+var greatestDecrease = 0;
+var currentDecrease = 0;
+var greatestDecreaseDate;
+
+// Iterate over the finances array.
+for (var i = 1; i < finances.length; i++) {
+
+  // Calculate the current decrease in profits.
+  currentDecrease = finances[i][1] - finances[i - 1][1];
+
+  // If the current decrease is less than the greatest decrease, update the greatest decrease and greatest decrease date variables.
+  if (currentDecrease < greatestDecrease) {
+    greatestDecrease = currentDecrease;
+    greatestDecreaseDate = finances[i][0];
+  }
+}
+
+// Console log the date and amount of the greatest decrease in profits/losses.
+console.log("The Greatest Decrease in Profits/Losses:  " + greatestDecreaseDate + " $" + greatestDecrease);
