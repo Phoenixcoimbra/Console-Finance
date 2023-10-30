@@ -170,14 +170,14 @@ console.log("The Greatest Increase in Profits/Losses:  " + greatestIncreaseDate+
 
 // // * The greatest decrease in Profit/Losses (date and amount) over the entire period.
 
-// var lowestAmount = 0;
+var lowestAmount = 0;
 
-// for (var i = 0; i < finances.length; i++) {
+ //for (var i = 0; i < finances.length; i++) {
 
-//   if (finances[i][1] < lowestAmount)
+   //if (finances[i][1] < lowestAmount)
 
-//   lowestAmount = finances[i];
-// }
+  //lowestAmount = finances[i];
+ //}
 
 console.log("the Greatest Decrease in Profits/Losses:  " + lowestAmount);
 
@@ -194,7 +194,7 @@ for (var i = 1; i < finances.length; i++) {
 
   // If the current decrease is less than the greatest decrease, update the greatest decrease and greatest decrease date variables.
   if (currentDecrease < greatestDecrease) {
-    greatestDecrease = currentDecrease;
+    lowestAmount = currentDecrease;
     greatestDecreaseDate = finances[i][0];
   }
 }
